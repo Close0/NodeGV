@@ -1,0 +1,21 @@
+{
+  "name": "mumble",
+  "description": "Mumble client library",
+  "version": "0.0.2",
+  "author": "Mikko Rantanen <jubjub@jubjubnest.net>",
+  "homepage": "https://github.com/Rantanen/node-mumble",
+  "bugs": "https://github.com/Rantanen/node-mumble/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Rantanen/node-mumble.git"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "protobuf": "~0.8.6",
+    "celt": "~0.1.0",
+    "jitterbuffer": "~0.1.0"
+  }
+}
