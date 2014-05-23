@@ -1,14 +1,14 @@
 {
-  "name": "mumble",
-  "description": "Mumble client library",
-  "version": "0.0.2",
-  "author": "Mikko Rantanen <jubjub@jubjubnest.net>",
-  "homepage": "https://github.com/Rantanen/node-mumble",
-  "bugs": "https://github.com/Rantanen/node-mumble/issues",
+  "name": "NodeGV",
+  "description": "GameVox NodeJS Application",
+  "version": "0.0.1",
+  "author": "Sean Huitger <sean@codebysean.com>",
+  "homepage": "https://github.com/Close0/NodeGV",
+  "bugs": "https://github.com/Close0/NodeGV/issues",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "http://github.com/Rantanen/node-mumble.git"
+    "url": "http://github.com/Close0/NodeGV.git"
   },
   "engines": {
     "node": ">=0.10.0"
