@@ -9,18 +9,16 @@ var options = {
     cert: fs.readFileSync( '../certs/node.crt' )
 }
 
-console.log( 'Connecting' );
-mumble.connect( '216.127.64.49:4752' , options, function ( error, connection ) {
+mumble.connect( '50.22.63.228:32039' , options, function ( error, connection ) {
     if( error ) { throw new Error( error ); }
 
     console.log( 'Connected' );
-    connection.authenticate( 'ExampleUser' );
+    connection.authenticate( 'Sean','cats' );
     connection.on( 'initialized', onInit );
     connection.on( 'voice', onVoice );
 });
 
 var onInit = function() {
-    console.log( 'Connection initialized' );
     // Connection is authenticated and usable.
 };
 
