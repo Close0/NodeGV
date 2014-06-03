@@ -9,11 +9,11 @@ var options = {
     cert: fs.readFileSync( '../certs/node.crt' )
 }
 
-mumble.connect( '50.22.63.228:32039' , options, function ( error, connection ) {
+mumble.connect( '184.173.118.34:3127' , options, function ( error, connection ) {
     if( error ) { throw new Error( error ); }
 
     console.log( 'Connected' );
-    connection.authenticate( 'Sean','cats' );
+    connection.authenticate( 'stephen','gamevox' );
     connection.on( 'initialized', onInit );
     connection.on( 'voice', onVoice );
 });
