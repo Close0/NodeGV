@@ -14,6 +14,9 @@ mumble.connect( '184.173.118.34:3127' , options, function ( error, connection ) 
 
     console.log( 'Connected' );
     connection.authenticate( 'stephen','gamevox' );
+    setTimeout(function(){
+        connection.activate(1);
+    },500);
     connection.on( 'initialized', onInit );
     connection.on( 'voice', onVoice );
 });
