@@ -17,6 +17,7 @@
     "protobuf": "~0.8.6",
     "celt": "~0.1.0",
     "jitterbuffer": "~0.1.0",
-    "xmlbuilder": "~2.2.1"
+    "xmlbuilder": "~2.2.1",
+    "xml2js": "~0.4.4"
   }
 }
