@@ -9,7 +9,7 @@ var phase = 0;
 var generateSound = function() {
     var b = new Buffer(480*2);
     for( var i = 0; i < 480; i++ ) {
-        var sample = Math.round( Math.sin( Math.PI*2*(phase+i)*freq/48000 ) * (1<<12) )
+        var sample = Math.round( Math.sin( Math.PI*2*(phase+i)*freq/48000 ) * (1<<12) );
         b.writeInt16LE( sample, i*2 );
     }
     phase += 480;
