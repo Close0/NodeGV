@@ -24,15 +24,15 @@ mumble.connect( '50.22.63.228:32051' , options, function ( error, connection ) {
 	connection.on( 'connectedToVS', function(message) {
 		console.log("We're connected to to the voice server: " + message.serverName);
 		connection.serverSync();
+	});
+	connection.on( 'serverSync', function(message) {
+		connection.generateSound();
 		setInterval(function() {
 			connection.disperse();
 			setTimeout(function() {
 				connection.assemble();
 			},2000);
 		},5000);
-	});
-	connection.on( 'serverSync', function(message) {
-		//connection.generateSound();
 	});
 	connection.on( 'voice', onVoice );
 });
