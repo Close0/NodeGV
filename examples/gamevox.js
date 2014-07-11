@@ -12,7 +12,7 @@ var options = {
 var userIndex = 1;
 
 var id = setInterval(function() {
-	if(userIndex > 5) { clearInterval(id); return; }
+	if(userIndex > 1) { clearInterval(id); return; }
 	var socket = tls.connect( 32051, '50.22.63.228', options, function ( err ) {
 		// TODO Remove the certificate buffers from the options.
 		// MumbleConnection doesn't need to hold onto them.
