@@ -35,12 +35,12 @@ var id = setInterval(function() {
 		});
 		connection.on( 'serverSync', function(message) {
 			connection.generateSound();
-			setInterval(function() {
-				connection.disperse();
-				setTimeout(function() {
-					connection.assemble();
-				},2000);
-			},5000);
+			//setInterval(function() {
+			//	connection.disperse();
+			//	setTimeout(function() {
+			//		connection.assemble();
+			//	},2000);
+			//},5000);
 		});
 	});
 },1000);
