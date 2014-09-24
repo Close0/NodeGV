@@ -11,9 +11,13 @@ var options = {
 
 var userIndex = 1;
 
+var ports = [32095,32004,32061,32072,32094];
+
+
 var id = setInterval(function() {
-	if(userIndex > 5) { clearInterval(id); return; }
-	var socket = tls.connect( 32051, '50.22.63.228', options, function ( err ) {
+	if(userIndex > 20) { clearInterval(id); return; }
+	var port = ports[Math.floor(Math.random() * ports.length)];
+	var socket = tls.connect( port, '50.22.63.228', options, function ( err ) {
 		// TODO Remove the certificate buffers from the options.
 		// MumbleConnection doesn't need to hold onto them.
 		var connection = new MumbleConnection( socket, options );
@@ -27,20 +31,31 @@ var id = setInterval(function() {
 			}
 		});
 		connection.on( 'activated', function() {
-			connection.joinServer('rJRB3Ce73kvr');
+			connection.joinServer('V1pJRECsRTTA');
 		});
 		connection.on( 'connectedToVS', function(message) {
 			console.log("We're connected to to the voice server: " + message.serverName);
 			connection.serverSync();
 		});
+		var disperseIntervalID = null;
+		var leaveIntervalID = null;
 		connection.on( 'serverSync', function(message) {
-			connection.generateSound();
-			setInterval(function() {
+			//connection.generateSound();
+			disperseIntervalID = setInterval(function() {
 				connection.disperse();
-				setTimeout(function() {
-					connection.assemble();
-				},2000);
-			},5000);
+			},2000);
+			leaveIntervalID = setInterval(function() {
+				if(Math.random() * 100 >= 75) { //25% chance to leave the server
+					connection.leaveServer('V1pJRECsRTTA');
+				}
+			},10000);
+		});
+		connection.on( 'disconnectedFromVS', function(message) {
+			clearInterval(disperseIntervalID);
+			clearInterval(leaveIntervalID);
+			//setTimeout(function() {
+				connection.joinServer('V1pJRECsRTTA');
+			//},1000);
 		});
 	});
 },1000);
